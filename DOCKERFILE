@@ -1,0 +1,11 @@
+FROM mysql:latest
+
+# Variables de entorno
+ENV MYSQL_ROOT_PASSWORD=pbd1
+ENV MYSQL_DATABASE=mydb
+
+# Archivo SQL al contenedor
+COPY base.sql /docker-entrypoint-initdb.d/
+
+# Script de Pythonr
+COPY load_data.py /load_data.py
