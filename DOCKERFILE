@@ -4,8 +4,23 @@ FROM mysql:latest
 ENV MYSQL_ROOT_PASSWORD=pbd1
 ENV MYSQL_DATABASE=mydb
 
+# Librerias a instalar:
+# pip install mysql.connector
+
 # Archivo SQL al contenedor
 COPY base.sql /docker-entrypoint-initdb.d/
 
 # Script de Pythonr
 COPY load_data.py /load_data.py
+
+# docker build -t mysql:latest .
+
+# docker run -d -p 4200:4200 -e MYSQL_ROOT_PASSWORD=pbd1 -e MYSQL_DATABASE=pbd1 --name pbd1 mysql:latest
+
+# docker cp C:\Users\matia\Documents\CODE\docker_pbd1\base.sql pbd1:/base.sql
+
+# docker cp C:\Users\matia\Documents\CODE\docker_pbd1\PBDI_data_1_housing.csv pbd1:/datos.csv
+
+# docker cp C:\Users\matia\Documents\CODE\docker_pbd1\cargado.py pbd1:/cargado.py
+
+# docker exec -it pbd1 python /cargado.py
